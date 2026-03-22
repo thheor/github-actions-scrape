@@ -2,7 +2,7 @@ name: Hourly Quote Scraper
 
 on:
   schedule:
-    - cron: '0 * * * *' # Runs at the start of every hour
+    - cron: "0 * * * *" # Runs at the start of every hour
   workflow_dispatch: # Allows you to run it manually for testing
 
 jobs:
@@ -16,16 +16,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: authors/setup-python@v5
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: "3.9"
 
       - name: Install dependencies
         run: |
           pip install requests beautifulsoup4
 
       - name: Run Scraper
-        run: python main.py # Make sure your file is named main.py
+        run: python scrape.py # Make sure your file is named main.py
 
       - name: Commit and Push changes
         run: |
